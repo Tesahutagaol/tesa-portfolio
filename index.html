@@ -1,222 +1,1577 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f8fbff" />
+<meta name="description" content="Portfolio of Tesa Putri Hutagaol, Information Systems graduate interested in business analysis, project management, and digital transformation." />
 <title>Tesa Putri Hutagaol — Portfolio</title>
+
 <style>
-:root { color-scheme: light dark; --bg: light-dark(#F7F4ED,#111827); --surface: light-dark(#FFFFFF,#1B2432); --text: light-dark(#172B4D,#F4F1E9); --muted: light-dark(#667085,#B7C0CE); --line: light-dark(#E5E0D5,#354154); --accent: light-dark(#294C70,#C5A46D); --soft: light-dark(#EDE7DA,#293344); }
+:root {
+  color-scheme: light;
+  --bg: #f8fbff;
+  --surface: #ffffff;
+  --text: #172b4d;
+  --muted: #65748b;
+  --line: #e3eaf4;
+  --accent: #2878e5;
+  --accent-dark: #165dc0;
+  --soft: #edf5ff;
+  --soft-blue: #e4efff;
+  --shadow: 0 18px 48px rgba(37, 91, 160, .09);
+}
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
-.site { min-height: 100vh; background-color: var(--bg); }
-nav { position: sticky; top: 0; z-index: 20; max-width: 1120px; margin: auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); background: var(--bg); }
-.brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.12rem; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+img { max-width: 100%; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.site {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  margin: auto;
+  padding: 15px max(28px, calc((100% - 1120px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid rgba(227, 234, 244, .9);
+  background: rgba(248, 251, 255, .94);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  flex-shrink: 0;
+  font-weight: 850;
+  letter-spacing: -.05em;
+  font-size: 1.15rem;
+}
+
 .brand span { color: var(--accent); }
-.navlinks { display: flex; gap: 24px; flex-wrap: wrap; }
-a { color: inherit; text-decoration: none; }
-.navlinks a { color: var(--muted); font-size: .9rem; }
-.navlinks a:hover, .text-link:hover { color: var(--accent); }
-main { max-width: 1120px; margin: auto; padding: 0 28px; }
-.hero { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(250px,.65fr); gap: 64px; align-items: center; padding: 88px 0 76px; }
-.eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; font-weight: 800; }
-h1 { font-size: clamp(2.7rem,6vw,5.2rem); line-height: .99; letter-spacing: -.065em; margin: 20px 0 24px; max-width: 760px; }
-.lead { color: var(--muted); max-width: 670px; font-size: 1.08rem; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
-.btn { display: inline-flex; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); font-size: .92rem; font-weight: 700; }
-.btn.primary { background: var(--accent); color: light-dark(#fff,#172033); border-color: var(--accent); }
-.btn.disabled { opacity: .55; cursor: not-allowed; }
-.quick-nav { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
-.quick-nav .btn { padding: 9px 13px; font-size: .82rem; }
-.hero-card { border: 1px solid var(--line); background: var(--surface); border-radius: 24px; padding: 26px; box-shadow: 0 18px 50px #0000000a; }
-.portrait-placeholder { width: 100%; aspect-ratio: 4 / 5; max-height: 340px; display: grid; place-items: center; text-align: center; border-radius: 18px; border: 1px dashed var(--accent); background: linear-gradient(145deg,var(--soft),var(--surface)); padding: 22px; margin-bottom: 22px; color: var(--muted); }
-.portrait-placeholder .portrait-icon { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; background: var(--surface); color: var(--accent); font-size: 1.8rem; }
-.portrait-placeholder strong { display: block; color: var(--text); }
-.portrait-placeholder span { display: block; font-size: .8rem; margin-top: 6px; }
-.hero-card h2 { font-size: 1.18rem; margin: 0 0 8px; }
-.hero-card p { color: var(--muted); font-size: .92rem; margin: 0; }
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-.pill { border: 1px solid var(--line); padding: 6px 10px; border-radius: 999px; font-size: .78rem; color: var(--muted); }
-section { padding: 62px 0; border-top: 1px solid var(--line); }
-.section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
-.kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .13em; font-size: .74rem; font-weight: 800; }
-h2.section-title { font-size: clamp(1.8rem,3.5vw,2.7rem); line-height: 1.1; letter-spacing: -.045em; margin: 8px 0 0; }
-.section-note { color: var(--muted); max-width: 400px; font-size: .9rem; }
-.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 42px; }
-.about-grid p { margin-top: 0; color: var(--muted); }
-.stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 24px; }
-.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
-.stat strong { display: block; font-size: 1.6rem; letter-spacing: -.05em; }
-.stat span { color: var(--muted); font-size: .8rem; }
-.cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; transition: transform .2s,border-color .2s; }
-.card:hover { transform: translateY(-3px); border-color: var(--accent); }
-.card-top { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
-.card h3 { margin: 8px 0 4px; font-size: 1.15rem; letter-spacing: -.025em; }
-.card .meta { color: var(--accent); font-size: .78rem; font-weight: 750; }
-.card p { color: var(--muted); font-size: .92rem; margin: 12px 0 0; }
-.arrow { color: var(--accent); font-size: 1.2rem; }
-.gallery-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
-.gallery-item { overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
-.photo-placeholder { min-height: 210px; display: grid; place-items: center; padding: 24px; text-align: center; background: linear-gradient(135deg,var(--soft),var(--surface)); border-bottom: 1px solid var(--line); }
-.photo-placeholder .camera { display: grid; place-items: center; width: 54px; height: 54px; margin: 0 auto 12px; border: 1px dashed var(--accent); border-radius: 16px; color: var(--accent); font-size: 1.5rem; }
-.photo-placeholder strong { display: block; font-size: .95rem; }
-.photo-placeholder span { display: block; color: var(--muted); font-size: .8rem; margin-top: 5px; }
-.work-visual { min-height: 190px; display: grid; place-items: center; padding: 22px; margin-bottom: 20px; text-align: center; border-radius: 14px; background: linear-gradient(135deg,var(--soft),var(--surface)); border: 1px solid var(--line); color: var(--muted); }
-.work-visual strong { display: block; color: var(--text); font-size: .95rem; }
-.work-visual span, .work-visual small { display: block; color: var(--muted); font-size: .8rem; margin-top: 6px; }
-.flow-steps { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 7px; }
-.flow-steps span { border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; color: var(--text); background: var(--surface); font-size: .78rem; }
+
+.navlinks {
+  display: flex;
+  gap: 19px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navlinks a {
+  color: var(--muted);
+  font-size: .82rem;
+  font-weight: 600;
+  transition: color .2s;
+}
+
+.navlinks a:hover,
+.text-link:hover {
+  color: var(--accent);
+}
+
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 0 28px;
+}
+
+/* HERO */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+  gap: 64px;
+  align-items: center;
+  padding: 88px 0 82px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: .74rem;
+  font-weight: 800;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 25px;
+  height: 2px;
+  border-radius: 10px;
+  background: var(--accent);
+}
+
+h1 {
+  font-size: clamp(3rem, 6.2vw, 5.3rem);
+  line-height: .99;
+  letter-spacing: -.075em;
+  margin: 22px 0 24px;
+  max-width: 700px;
+  overflow-wrap: anywhere;
+}
+
+h1 .name-accent {
+  color: var(--accent);
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 650px;
+  font-size: 1.06rem;
+  line-height: 1.85;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-size: .9rem;
+  font-weight: 750;
+  transition: transform .2s, box-shadow .2s,
+    background .2s, border-color .2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: #b8d4fb;
+  box-shadow: 0 8px 22px rgba(37, 91, 160, .09);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(40, 120, 229, .18);
+}
+
+.btn.primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+/* PROFILE PHOTO */
+
+.hero-card {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  justify-self: end;
+  padding: 17px;
+  border: 1px solid rgba(220, 232, 248, .95);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 25px 65px rgba(31, 87, 157, .12);
+  transform: rotate(1deg);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.hero-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 30px 75px rgba(31, 87, 157, .16);
+}
+
+.portrait-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: 23px;
+  background: linear-gradient(145deg, #e5f0ff, #f8fbff 65%, #dceaff);
+}
+
+.portrait-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.portrait-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  opacity: 0;
+  transform: scale(1.035);
+  transition: opacity 1s ease, transform 4s ease;
+}
+
+.portrait-photo.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.photo-indicator {
+  position: absolute;
+  z-index: 2;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(10px);
+}
+
+.photo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a8b9d1;
+  transition: all .3s;
+}
+
+.photo-dot.active {
+  width: 19px;
+  border-radius: 10px;
+  background: var(--accent);
+}
+
+.profile-caption {
+  padding: 19px 7px 5px;
+}
+
+.profile-caption h2 {
+  font-size: 1.15rem;
+  margin: 0 0 4px;
+  letter-spacing: -.025em;
+}
+
+.profile-caption p {
+  color: var(--muted);
+  font-size: .86rem;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.pill {
+  border: 1px solid var(--line);
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #f8fbff;
+  font-size: .74rem;
+  color: var(--muted);
+}
+
+/* SECTIONS */
+
+section {
+  padding: 66px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.kicker {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: .73rem;
+  font-weight: 850;
+}
+
+h2.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+  line-height: 1.15;
+  letter-spacing: -.055em;
+  margin: 8px 0 0;
+}
+
+.section-note {
+  color: var(--muted);
+  max-width: 410px;
+  font-size: .9rem;
+  margin: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 42px;
+}
+
+.about-grid p { color: var(--muted); margin-top: 0; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.6rem;
+  letter-spacing: -.05em;
+  color: var(--accent);
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
+/* EXPERIENCE AND PROJECT CARDS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 21px;
+  padding: 23px;
+  box-shadow: 0 5px 20px rgba(37, 91, 160, .025);
+  transition: transform .22s, border-color .22s, box-shadow .22s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #c3daf9;
+  box-shadow: var(--shadow);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: start;
+}
+
+.card h3 {
+  margin: 8px 0 4px;
+  font-size: 1.12rem;
+  line-height: 1.4;
+  letter-spacing: -.025em;
+}
+
+.card .meta {
+  color: var(--accent);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .035em;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: 12px 0 0;
+}
+
+.photo-placeholder {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #eaf3ff, #f8fbff);
+  border: 1px dashed #c7dcfa;
+  color: var(--muted);
+}
+
+.photo-placeholder strong {
+  display: block;
+  color: var(--text);
+  font-size: .93rem;
+}
+
+.photo-placeholder span {
+  display: block;
+  font-size: .8rem;
+  margin-top: 6px;
+}
+
+.work-visual {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #eaf3ff, #f8fbff);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.work-visual strong {
+  display: block;
+  color: var(--text);
+  font-size: .93rem;
+}
+
+.work-visual span,
+.work-visual small {
+  display: block;
+  color: var(--muted);
+  font-size: .8rem;
+  margin-top: 6px;
+}
+
+.flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.flow-steps span {
+  border: 1px solid #d7e5f8;
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: var(--text);
+  background: #fff;
+  font-size: .75rem;
+}
+
 .flow-steps b { color: var(--accent); }
-.gallery-caption { padding: 16px 18px 18px; }
-.gallery-caption h3 { margin: 0 0 5px; font-size: 1rem; }
-.gallery-caption p { color: var(--muted); font-size: .85rem; margin: 0; }
-.skill-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-.skill-box { border: 1px solid var(--line); border-radius: 18px; padding: 22px; background: var(--surface); }
-.skill-box h3 { font-size: 1rem; margin: 0 0 12px; }
-.skill-box p { color: var(--muted); font-size: .88rem; margin: 0; }
+
+/* LEADERSHIP TIMELINE */
+
 .timeline { display: grid; gap: 0; }
-.timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 26px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 26px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
 .timeline-item:first-child { border-top: 1px solid var(--line); }
-.timeline-date { color: var(--accent); font-size: .84rem; font-weight: 750; }
-.timeline-item h3 { margin: 0 0 5px; font-size: 1.08rem; }
-.timeline-item .org { color: var(--muted); font-size: .9rem; }
-.timeline-item p { color: var(--muted); margin: 10px 0 0; font-size: .92rem; }
+
+.timeline-date {
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 800;
+}
+
+.timeline-item h3 {
+  margin: 0 0 5px;
+  font-size: 1.06rem;
+}
+
+.timeline-item .org {
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  margin: 10px 0 0;
+  font-size: .9rem;
+}
+
 .more-activities { margin-top: 24px; }
-.more-activities-toggle { cursor: pointer; font: inherit; text-align: center; background: transparent; color: var(--text); transition: background .2s,border-color .2s; }
+
+.more-activities-toggle {
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: .9rem;
+}
+
 .more-activities-toggle:hover { border-color: var(--accent); }
+
 .more-activities-panel { margin-top: 22px; }
-.activity-group-title { margin: 28px 0 4px; color: var(--accent); font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
+
+.activity-group-title {
+  margin: 28px 0 4px;
+  color: var(--accent);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
 .activity-group-title:first-child { margin-top: 0; }
+
 .more-activities-panel[hidden] { display: none; }
-.contact { display: flex; justify-content: space-between; align-items: center; gap: 30px; border-radius: 24px; background: var(--soft); padding: 32px; }
-.contact h2 { font-size: clamp(1.8rem,4vw,3rem); letter-spacing: -.05em; line-height: 1.05; margin: 8px 0 12px; }
-.contact p { color: var(--muted); max-width: 520px; margin: 0; }
-.contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-.contact-links .btn { align-items: center; gap: 8px; }
-.link-pending { border: 1px dashed var(--line); border-radius: 999px; padding: 12px 16px; color: var(--muted); font-size: .88rem; }
-footer { max-width: 1120px; margin: auto; padding: 28px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .82rem; }
+
+/* SKILLS */
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.skill-box {
+  border: 1px solid var(--line);
+  border-radius: 19px;
+  padding: 22px;
+  background: var(--surface);
+  transition: border-color .2s, transform .2s;
+}
+
+.skill-box:hover {
+  border-color: #c3daf9;
+  transform: translateY(-2px);
+}
+
+.skill-box h3 {
+  font-size: 1rem;
+  margin: 0 0 12px;
+}
+
+.skill-box p {
+  color: var(--muted);
+  font-size: .87rem;
+  margin: 0;
+}
+
+/* CONTACT */
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid #dce9fb;
+  border-radius: 25px;
+  background: linear-gradient(130deg, #edf5ff, #f8fbff);
+  padding: 34px;
+}
+
+.contact h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -.055em;
+  line-height: 1.08;
+  margin: 8px 0 12px;
+}
+
+.contact p {
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.contact-links .btn { align-items: center; }
+
+.link-pending {
+  display: inline-flex;
+  align-items: center;
+  border: 1px dashed #cbd9ec;
+  border-radius: 12px;
+  padding: 11px 15px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+footer {
+  max-width: 1120px;
+  margin: auto;
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--muted);
+  font-size: .81rem;
+}
+
 .text-link { color: var(--accent); font-weight: 750; }
-@media (max-width: 760px) { nav { padding: 14px 20px; align-items: flex-start; flex-direction: column; gap: 10px; } .navlinks { gap: 12px; } main { padding: 0 20px; } .hero { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; } .hero-card { max-width: none; } .about-grid, .cards, .skill-grid, .gallery-grid { grid-template-columns: 1fr; } .section-head { align-items: start; flex-direction: column; } .timeline-item { grid-template-columns: 1fr; gap: 6px; } .stats { grid-template-columns: 1fr; } .contact { flex-direction: column; align-items: flex-start; padding: 24px; } footer { padding: 24px 20px; flex-direction: column; } }
+
+@media (max-width: 950px) {
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navlinks { gap: 12px 17px; }
+
+  .hero {
+    gap: 35px;
+    grid-template-columns: minmax(0, 1.1fr) minmax(250px, .9fr);
+  }
+
+  .hero-card { max-width: 350px; }
+}
+
+@media (max-width: 760px) {
+  nav { padding: 14px 20px; }
+
+  .navlinks { gap: 9px 14px; }
+
+  .navlinks a { font-size: .79rem; }
+
+  main { padding: 0 20px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 54px 0 48px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 12vw, 4.6rem);
+    max-width: 600px;
+  }
+
+  .lead { font-size: 1rem; }
+
+  .hero-card {
+    max-width: 390px;
+    justify-self: center;
+  }
+
+  section { padding: 48px 0; }
+
+  .about-grid,
+  .cards,
+  .skill-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid { gap: 12px; }
+
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .stats { grid-template-columns: 1fr; }
+
+  .contact {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+
+  footer {
+    padding: 24px 20px;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
 </style>
 </head>
+
 <body>
 <div class="site">
-<nav aria-label="Navigasi utama">
+
+<nav aria-label="Main navigation">
   <a class="brand" href="#home">TESA<span>.</span></a>
-  <div class="navlinks"><a href="#about">About</a><a href="#experience">Experience</a><a href="#leadership">Leadership & Activities</a><a href="#projects">Projects</a><a href="#education">Education & Achievements</a><a href="#certifications">Certifications & Training</a><a href="#skills">Skills & Tools</a><a href="#contact">Contact</a></div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#leadership">Leadership & Activities</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education & Achievements</a>
+    <a href="#certifications">Certifications & Training</a>
+    <a href="#skills">Skills & Tools</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
+
 <main>
+
+<!-- HERO -->
 <header class="hero" id="home">
   <div>
     <div class="eyebrow">Portfolio · Business · Projects · Digital</div>
-    <h1>Connecting business needs, people, and solutions.</h1>
-    <p class="lead">An Information Systems graduate with experience in business operations, project coordination, public-service initiatives, and data analysis. I enjoy understanding business and user needs, improving processes, and translating ideas into practical solutions.</p>
-    <div class="actions"><a class="btn primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="btn" href="#contact">Get in touch</a><span class="btn disabled" aria-disabled="true" title="The final CV PDF will be added later">Download CV · coming soon</span></div>
+
+    <h1>Tesa Putri <span class="name-accent">Hutagaol.</span></h1>
+
+    <p class="lead">
+      An Information Systems graduate with hands-on experience in business
+      operations, project coordination, stakeholder engagement, and digital
+      initiatives. I enjoy understanding business needs, organizing people
+      and processes, and turning ideas into practical solutions.
+    </p>
+
+    <div class="actions">
+      <a class="btn primary"
+         href="assets/Tesa_Putri_Hutagaol_CV.pdf"
+         download>
+        Download CV <span aria-hidden="true">↓</span>
+      </a>
+
+      <a class="btn" href="#projects">
+        Explore My Work <span aria-hidden="true">↗</span>
+      </a>
+
+      <a class="btn" href="#contact">
+        Get in Touch <span aria-hidden="true">↗</span>
+      </a>
+    </div>
   </div>
-  <aside class="hero-card">
-    <div class="portrait-placeholder"><div><div class="portrait-icon" aria-hidden="true">＋</div><strong>Formal portrait</strong><span>Photo placeholder · professional headshot to be added later</span></div></div>
-    <h2>Tesa Putri Hutagaol</h2>
-    <p>Information Systems Graduate<br/>Business Analysis · Project Management · Business Operations</p>
-    <div class="pills"><span class="pill">Stakeholder Coordination</span><span class="pill">Process Improvement</span><span class="pill">Data Analysis</span></div>
+
+  <aside class="hero-card" aria-label="Profile photos and introduction">
+    <div class="portrait-wrap" id="portrait-wrap">
+      <!-- Upload your photos to the images folder using these filenames. -->
+      <img class="portrait-photo active"
+           src="images/profile-1.jpg"
+           alt="Tesa Putri Hutagaol — profile photo 1"
+           fetchpriority="high" />
+
+      <img class="portrait-photo"
+           src="images/profile-2.jpg"
+           alt="Tesa Putri Hutagaol — profile photo 2"
+           loading="lazy" />
+
+      <img class="portrait-photo"
+           src="images/profile-3.jpg"
+           alt="Tesa Putri Hutagaol — profile photo 3"
+           loading="lazy" />
+
+      <div class="photo-indicator" aria-label="Photo slideshow indicators">
+        <span class="photo-dot active"></span>
+        <span class="photo-dot"></span>
+        <span class="photo-dot"></span>
+      </div>
+    </div>
+
+    <div class="profile-caption">
+      <h2>Tesa Putri Hutagaol</h2>
+      <p>
+        Information Systems Graduate<br />
+        Business Analysis · Project Management · Business Operations
+      </p>
+
+      <div class="pills">
+        <span class="pill">Stakeholder Coordination</span>
+        <span class="pill">Process Improvement</span>
+        <span class="pill">Data Analysis</span>
+      </div>
+    </div>
   </aside>
 </header>
+
+<!-- ABOUT -->
 <section id="about">
-  <div class="section-head"><div><div class="kicker">01 / About</div><h2 class="section-title">A little about me</h2></div><p class="section-note">Structured thinking, people-focused collaboration, and practical problem-solving.</p></div>
-  <div class="about-grid"><div><p>I am an Information Systems graduate with hands-on experience managing an independent business, coordinating creative projects, supporting digital services, and working with stakeholders.</p><p>I am interested in opportunities where I can combine analytical thinking, communication, and execution to support business goals and deliver practical solutions.</p></div><div><p>My experiences have taught me to understand different needs, organize tasks and resources, communicate across teams, and approach problems systematically. I have also explored data-driven problem-solving through academic projects involving sentiment analysis and UI/UX design.</p><div class="stats"><div class="stat"><strong>40%</strong><span>Repeat-order rate in my business</span></div><div class="stat"><strong>80+</strong><span>Committee members coordinated</span></div><div class="stat"><strong>6,000+</strong><span>Event participants</span></div></div></div></div>
-</section>
-<section id="experience">
-  <div class="section-head"><div><div class="kicker">02 / Experience</div><h2 class="section-title">Professional experience</h2></div><p class="section-note">Experiences that demonstrate how I organize work, understand needs, and turn them into action.</p></div>
-  <div class="cards">
-    <article class="card"><div class="photo-placeholder work-visual"><div><strong>Original business photos</strong><span>Replace with selected nail art and business activity photos</span></div></div><div class="card-top"><div><div class="meta">BUSINESS OPERATIONS · MAR 2024—AUG 2026</div><h3>Independent Nail Art Business</h3></div></div><p>Managed end-to-end operations, finance, marketing, and customer service. Served hundreds of customers over two years and achieved a 40% repeat-order rate. Developed digital promotions and cross-business collaborations to support customer acquisition and retention.</p><div class="pills"><span class="pill">Business Operations</span><span class="pill">Customer Experience</span><span class="pill">Digital Marketing</span></div></article>
-    <article class="card"><div class="work-visual"><div class="flow-steps"><span>Requirements</span><b>→</b><span>Planning</span><b>→</b><span>Coordination</span><b>→</b><span>Monitoring</span></div><small>Illustrative project workflow · Odama Studio</small></div><div class="card-top"><div><div class="meta">PROJECT MANAGEMENT · MAY 2023—MAY 2024</div><h3>Project Manager — Odama Studio</h3></div></div><p>Gathered client requirements and translated them into clear project scopes. Planned schedules and resources, coordinated the team and clients, monitored progress, and managed changing requirements to keep project activities aligned with expectations.</p><div class="pills"><span class="pill">Client Communication</span><span class="pill">Project Coordination</span><span class="pill">Scope & Timeline</span></div></article>
-    <article class="card"><div class="photo-placeholder work-visual"><div><strong>Original activity photos</strong><span>BPSDMP Kominfo training, public service, or website work</span></div></div><div class="card-top"><div><div class="meta">DIGITAL & PUBLIC SERVICE · DEC 2024—JUN 2025</div><h3>IT & Public Service Intern — BPSDMP Kominfo Surabaya</h3></div></div><p>Supported training and public-service activities for diverse participants. Contributed to website interface and feature updates based on user needs and identified challenges, connecting service delivery with practical digital improvements.</p><div class="pills"><span class="pill">User Needs</span><span class="pill">Digital Services</span><span class="pill">Communication</span></div></article>
-    <article class="card"><div class="photo-placeholder work-visual"><div><strong>Original QRIS activity photos</strong><span>Feature launch and stakeholder engagement documentation</span></div></div><div class="card-top"><div><div class="meta">STAKEHOLDER RELATIONS · NOV 2025</div><h3>Product & Stakeholder Relations Staff (Freelance) — Bank Indonesia</h3></div></div><p>Supported the launch of a QRIS feature by explaining its use, answering user questions, identifying user needs, and coordinating with relevant teams to support a smooth user experience.</p><div class="pills"><span class="pill">Stakeholder Communication</span><span class="pill">User Support</span><span class="pill">QRIS</span></div></article>
+  <div class="section-head">
+    <div>
+      <div class="kicker">01 / About</div>
+      <h2 class="section-title">A little about me</h2>
+    </div>
+    <p class="section-note">
+      Structured thinking, people-focused collaboration, and practical problem-solving.
+    </p>
   </div>
-</section>
-<section id="leadership">
-  <div class="section-head"><div><div class="kicker">03 / Leadership & Activities</div><h2 class="section-title">Leadership & activities</h2></div><p class="section-note">Organizational experiences that strengthened leadership, communication, and cross-team coordination.</p></div>
-  <div class="timeline">
-    <div class="timeline-item"><div class="timeline-date">2024—2025</div><div><h3>Secretary General — Generasi Baru Indonesia (GenBI)</h3><div class="org">Organizational leadership and member coordination</div><p>Supported organizational coordination, internal communication, and program execution with members.</p></div></div>
-    <div class="timeline-item"><div class="timeline-date">2024</div><div><h3>Opening & Closing Coordinator — SAKERA University Orientation</h3><div class="org">80+ committee members · 6,000+ participants</div><p>Coordinated committee activities and operational needs for a large-scale university event.</p></div></div>
-    <div class="timeline-item"><div class="timeline-date">SEP—DEC 2024</div><div><h3>Event Division Coordinator — Aksara Musik Festival</h3><div class="org">30+ team members · 5,000+ audience</div><p>Coordinated event-section activities and supported execution for a large-scale music festival.</p></div></div>
-  </div>
-  <div class="more-activities">
-    <button class="btn more-activities-toggle" type="button" aria-expanded="false" aria-controls="all-activities">See All Experiences <span aria-hidden="true">＋</span></button>
-    <div class="more-activities-panel" id="all-activities" hidden>
-      <p class="section-note">Additional college activities, speaking engagements, volunteering, competitions, and development programs.</p>
-      <h3 class="activity-group-title">Leadership & Organization</h3>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">2023</div><div><h3>Best Staff — HIMASI</h3><div class="org">Information Systems Student Association</div><p>Recognized for contributions and active participation in student organization activities.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2023</div><div><h3>Committee Lead — EFIS Sports Competition</h3><div class="org">Event planning and team coordination</div><p>Led committee preparation and coordinated execution for a student sports competition.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2023</div><div><h3>Liaison Officer — Faculty of Engineering Orientation</h3><div class="org">Participant communication and event support</div><p>Supported communication and coordination between event organizers and assigned participants.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2023</div><div><h3>Event Division Staff — Information Systems Orientation</h3><div class="org">Student orientation program</div><p>Supported event preparation and on-site coordination for the Information Systems program orientation.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2024</div><div><h3>Best Staff — BEM KM UTM</h3><div class="org">Student Executive Board</div><p>Recognized for contributions to student executive board activities.</p></div></div>
-      </div>
-      <h3 class="activity-group-title">Speaking & Communication</h3>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">2024—2025</div><div><h3>Speaker — Information Systems Student Orientation</h3><div class="org">Two consecutive years</div><p>Shared information and guidance with incoming students during program orientation sessions.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2025</div><div><h3>Speaker — Faculty of Agriculture Orientation</h3><div class="org">Student orientation session</div><p>Delivered a session for incoming students as part of faculty orientation activities.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">Various events</div><div><h3>Master of Ceremonies & Moderator</h3><div class="org">Campus and external events</div><p>Frequently hosted and moderated events, helping guide sessions and maintain audience engagement.</p></div></div>
-      </div>
-      <h3 class="activity-group-title">Volunteering & Event Support</h3>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">2025</div><div><h3>Volunteer Content Creator — BARATI CUP International</h3><div class="org">Event content support</div><p>Supported event-related content activities for an international tournament.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2025</div><div><h3>Ticketing Volunteer — Slank Concert</h3><div class="org">Event operations</div><p>Assisted with ticketing activities to support event operations and attendee flow.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2025</div><div><h3>Event Crew — Bank Indonesia QRIS Feature Launch</h3><div class="org">Product and stakeholder engagement</div><p>Helped explain the QRIS feature, respond to questions, and coordinate with relevant teams during the launch.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">Various events</div><div><h3>Event Talent & Content Contributor</h3><div class="org">Campus and external activities</div><p>Participated as talent in content and promotional materials for selected activities.</p></div></div>
-      </div>
-      <h3 class="activity-group-title">Awards & Achievements</h3>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">2024</div><div><h3>National English Speech Competition — Grand Finalist</h3><div class="org">Public speaking and English communication</div><p>Reached the grand-final stage of a national English speech competition.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2024</div><div><h3>National Mixed Doubles Badminton — 1st Place</h3><div class="org">Sports achievement</div><p>Won first place in a national mixed doubles badminton competition.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2025</div><div><h3>National Essay Competition — Grand Finalist</h3><div class="org">Writing and analytical communication</div><p>Reached the grand-final stage of a national essay competition.</p></div></div>
-      </div>
-      <h3 class="activity-group-title">Training & Development</h3>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">2024</div><div><h3>Leadership Practice & Capacity Building</h3><div class="org">GenBI Empowerment Program · June 2024</div><p>Participated in a leadership and self-development program focused on capacity building.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2024</div><div><h3>Public Speaking Training</h3><div class="org">GenBI Empowerment Program · October 2024</div><p>Developed public speaking and communication skills through structured training.</p></div></div>
-        <div class="timeline-item"><div class="timeline-date">2025</div><div><h3>Digital Marketing Bootcamp / Independent Study</h3><div class="org">Five-month learning program</div><p>Completed structured learning in digital marketing and related practical skills.</p></div></div>
+
+  <div class="about-grid">
+    <div>
+      <p>
+        I am an Information Systems graduate with hands-on experience managing
+        an independent business, coordinating creative projects, supporting
+        digital services, and working with stakeholders.
+      </p>
+      <p>
+        I am interested in opportunities where I can combine analytical
+        thinking, communication, and execution to support business goals
+        and deliver practical solutions.
+      </p>
+    </div>
+
+    <div>
+      <p>
+        My experiences have taught me to understand different needs, organize
+        tasks and resources, communicate across teams, and approach problems
+        systematically. I have also explored data-driven problem-solving
+        through academic projects involving sentiment analysis and UI/UX design.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>40%</strong>
+          <span>Repeat-order rate in my business</span>
+        </div>
+        <div class="stat">
+          <strong>80+</strong>
+          <span>Committee members coordinated</span>
+        </div>
+        <div class="stat">
+          <strong>6,000+</strong>
+          <span>Event participants</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<section id="projects">
-  <div class="section-head"><div><div class="kicker">04 / Projects</div><h2 class="section-title">Selected projects</h2></div><p class="section-note">Academic and competition projects that demonstrate analytical thinking, user-centered design, and problem solving.</p></div>
-  <div class="cards"><article class="card"><div class="photo-placeholder work-visual"><div><strong>Research result visual</strong><span>Insert an original chart or cropped research screenshot</span></div></div><div class="card-top"><div><div class="meta">DATA ANALYSIS · FINAL PROJECT</div><h3>MBG Program Sentiment Analysis</h3></div></div><p>Analyzed 1,390 TikTok comments about Indonesia’s Free Nutritious Meals (MBG) program to identify sentiment patterns and evaluate classification results. The model achieved 86.1% accuracy while addressing class imbalance.</p><div class="pills"><span class="pill">Python</span><span class="pill">TF-IDF</span><span class="pill">Logistic Regression</span></div></article><article class="card"><div class="photo-placeholder work-visual"><div><strong>UI/UX prototype or award</strong><span>Insert original Go Wisata project screen or competition proof</span></div></div><div class="card-top"><div><div class="meta">UI/UX · NATIONAL COMPETITION · 2024</div><h3>Go Wisata Travel Planning Concept</h3></div></div><p>Developed a travel-planning application concept focused on user needs and travel-planning challenges. The project received 2nd place in a national competition.</p><div class="pills"><span class="pill">UI/UX</span><span class="pill">User-Centered Thinking</span><span class="pill">Problem Solving</span></div></article><article class="card"><div class="card-top"><div><div class="meta">ACADEMIC PROJECT · 2024</div><h3>University Admissions Decision Support Website</h3></div></div><p>An academic project exploring a decision-support application for university admissions selection, with a focus on structured selection criteria and presenting recommendations. Detailed project visuals were not available.</p><div class="pills"><span class="pill">Information Systems</span><span class="pill">Decision Support</span><span class="pill">Requirements Thinking</span></div></article></div>
-</section>
-<section id="education">
-  <div class="section-head"><div><div class="kicker">05 / Education & Achievements</div><h2 class="section-title">Education & achievements</h2></div><p class="section-note">Academic foundation, scholarship, and selected competition achievements.</p></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-head">
+    <div>
+      <div class="kicker">02 / Experience</div>
+      <h2 class="section-title">Professional experience</h2>
+    </div>
+    <p class="section-note">
+      Experiences that demonstrate how I organize work, understand needs,
+      and turn them into action.
+    </p>
+  </div>
+
   <div class="cards">
-    <article class="card"><div class="meta">2022—2026</div><h3>Bachelor's Degree in Information Systems</h3><p>Universitas Trunojoyo Madura · GPA 3.72/4.00</p></article>
-    <article class="card"><div class="meta">SCHOLARSHIP · 2024—2025</div><h3>Bank Indonesia Scholarship</h3><p>Recipient for two periods.</p></article>
-    <article class="card"><div class="meta">NATIONAL COMPETITIONS</div><h3>UI/UX, English Speech & Essay</h3><p>2nd place nationally for the Go Wisata UI/UX project (2024); national English Speech grand finalist (2024); national essay grand finalist (2025).</p></article>
+    <article class="card">
+      <div class="photo-placeholder">
+        <div>
+          <strong>Business & Nail Art</strong>
+          <span>Replace this area with an original business photo if available.</span>
+        </div>
+      </div>
+      <div class="card-top">
+        <div>
+          <div class="meta">BUSINESS OPERATIONS · MAR 2024—AUG 2026</div>
+          <h3>Independent Nail Art Business</h3>
+        </div>
+      </div>
+      <p>
+        Managed end-to-end operations, finance, marketing, and customer
+        service. Served hundreds of customers over two years and achieved
+        a 40% repeat-order rate. Developed digital promotions and
+        cross-business collaborations to support customer acquisition
+        and retention.
+      </p>
+      <div class="pills">
+        <span class="pill">Business Operations</span>
+        <span class="pill">Customer Experience</span>
+        <span class="pill">Digital Marketing</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="work-visual">
+        <div class="flow-steps">
+          <span>Requirements</span><b>→</b>
+          <span>Planning</span><b>→</b>
+          <span>Coordination</span><b>→</b>
+          <span>Monitoring</span>
+        </div>
+        <small>Illustrative project workflow · Odama Studio</small>
+      </div>
+      <div class="card-top">
+        <div>
+          <div class="meta">PROJECT MANAGEMENT · MAY 2023—MAY 2024</div>
+          <h3>Project Manager — Odama Studio</h3>
+        </div>
+      </div>
+      <p>
+        Gathered client requirements and translated them into clear project
+        scopes. Planned schedules and resources, coordinated the team and
+        clients, monitored progress, and managed changing requirements to
+        keep project activities aligned with expectations.
+      </p>
+      <div class="pills">
+        <span class="pill">Client Communication</span>
+        <span class="pill">Project Coordination</span>
+        <span class="pill">Scope & Timeline</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="photo-placeholder">
+        <div>
+          <strong>Digital & Public Service</strong>
+          <span>BPSDMP Kominfo training, public service, or website work.</span>
+        </div>
+      </div>
+      <div class="card-top">
+        <div>
+          <div class="meta">DIGITAL & PUBLIC SERVICE · DEC 2024—JUN 2025</div>
+          <h3>IT & Public Service Intern — BPSDMP Kominfo Surabaya</h3>
+        </div>
+      </div>
+      <p>
+        Supported training and public-service activities for diverse
+        participants. Contributed to website interface and feature updates
+        based on user needs and identified challenges, connecting service
+        delivery with practical digital improvements.
+      </p>
+      <div class="pills">
+        <span class="pill">User Needs</span>
+        <span class="pill">Digital Services</span>
+        <span class="pill">Communication</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="photo-placeholder">
+        <div>
+          <strong>QRIS Feature Launch</strong>
+          <span>Feature launch and stakeholder engagement documentation.</span>
+        </div>
+      </div>
+      <div class="card-top">
+        <div>
+          <div class="meta">STAKEHOLDER RELATIONS · NOV 2025</div>
+          <h3>Product & Stakeholder Relations Staff (Freelance) — Bank Indonesia</h3>
+        </div>
+      </div>
+      <p>
+        Supported the launch of a QRIS feature by explaining its use,
+        answering user questions, identifying user needs, and coordinating
+        with relevant teams to support a smooth user experience.
+      </p>
+      <div class="pills">
+        <span class="pill">Stakeholder Communication</span>
+        <span class="pill">User Support</span>
+        <span class="pill">QRIS</span>
+      </div>
+    </article>
   </div>
 </section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="section-head">
+    <div>
+      <div class="kicker">03 / Leadership & Activities</div>
+      <h2 class="section-title">Leadership & activities</h2>
+    </div>
+    <p class="section-note">
+      Organizational experiences that strengthened leadership,
+      communication, and cross-team coordination.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2024—2025</div>
+      <div>
+        <h3>Secretary General — Generasi Baru Indonesia (GenBI)</h3>
+        <div class="org">Organizational leadership and member coordination</div>
+        <p>
+          Supported organizational coordination, internal communication,
+          and program execution with members.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2024</div>
+      <div>
+        <h3>Opening & Closing Coordinator — SAKERA University Orientation</h3>
+        <div class="org">80+ committee members · 6,000+ participants</div>
+        <p>
+          Coordinated committee activities and operational needs for
+          a large-scale university event.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">SEP—DEC 2024</div>
+      <div>
+        <h3>Event Division Coordinator — Aksara Musik Festival</h3>
+        <div class="org">30+ team members · 5,000+ audience</div>
+        <p>
+          Coordinated event-section activities and supported execution
+          for a large-scale music festival.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="more-activities">
+    <button class="btn more-activities-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="all-activities">
+      See All Experiences <span aria-hidden="true">＋</span>
+    </button>
+
+    <div class="more-activities-panel" id="all-activities" hidden>
+      <p class="section-note">
+        Additional college activities, speaking engagements, volunteering,
+        competitions, and development programs.
+      </p>
+
+      <h3 class="activity-group-title">Leadership & Organization</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <div>
+            <h3>Best Staff — HIMASI</h3>
+            <div class="org">Information Systems Student Association</div>
+            <p>Recognized for contributions and active participation in student organization activities.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <div>
+            <h3>Committee Lead — EFIS Sports Competition</h3>
+            <div class="org">Event planning and team coordination</div>
+            <p>Led committee preparation and coordinated execution for a student sports competition.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <div>
+            <h3>Liaison Officer — Faculty of Engineering Orientation</h3>
+            <div class="org">Participant communication and event support</div>
+            <p>Supported communication and coordination between event organizers and assigned participants.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <div>
+            <h3>Event Division Staff — Information Systems Orientation</h3>
+            <div class="org">Student orientation program</div>
+            <p>Supported event preparation and on-site coordination for the Information Systems program orientation.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div>
+            <h3>Best Staff — BEM KM UTM</h3>
+            <div class="org">Student Executive Board</div>
+            <p>Recognized for contributions to student executive board activities.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="activity-group-title">Speaking & Communication</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024—2025</div>
+          <div>
+            <h3>Speaker — Information Systems Student Orientation</h3>
+            <div class="org">Two consecutive years</div>
+            <p>Shared information and guidance with incoming students during program orientation sessions.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div>
+            <h3>Speaker — Faculty of Agriculture Orientation</h3>
+            <div class="org">Student orientation session</div>
+            <p>Delivered a session for incoming students as part of faculty orientation activities.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Various events</div>
+          <div>
+            <h3>Master of Ceremonies & Moderator</h3>
+            <div class="org">Campus and external events</div>
+            <p>Frequently hosted and moderated events, helping guide sessions and maintain audience engagement.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="activity-group-title">Volunteering & Event Support</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div>
+            <h3>Volunteer Content Creator — BARATI CUP International</h3>
+            <div class="org">Event content support</div>
+            <p>Supported event-related content activities for an international tournament.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div>
+            <h3>Ticketing Volunteer — Slank Concert</h3>
+            <div class="org">Event operations</div>
+            <p>Assisted with ticketing activities to support event operations and attendee flow.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div>
+            <h3>Event Crew — Bank Indonesia QRIS Feature Launch</h3>
+            <div class="org">Product and stakeholder engagement</div>
+            <p>Helped explain the QRIS feature, respond to questions, and coordinate with relevant teams during the launch.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Various events</div>
+          <div>
+            <h3>Event Talent & Content Contributor</h3>
+            <div class="org">Campus and external activities</div>
+            <p>Participated as talent in content and promotional materials for selected activities.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="activity-group-title">Awards & Achievements</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div>
+            <h3>National English Speech Competition — Grand Finalist</h3>
+            <div class="org">Public speaking and English communication</div>
+            <p>Reached the grand-final stage of a national English speech competition.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div>
+            <h3>National Mixed Doubles Badminton — 1st Place</h3>
+            <div class="org">Sports achievement</div>
+            <p>Won first place in a national mixed doubles badminton competition.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div>
+            <h3>National Essay Competition — Grand Finalist</h3>
+            <div class="org">Writing and analytical communication</div>
+            <p>Reached the grand-final stage of a national essay competition.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="activity-group-title">Training & Development</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div>
+            <h3>Leadership Practice & Capacity Building</h3>
+            <div class="org">GenBI Empowerment Program · June 2024</div>
+            <p>Participated in a leadership and self-development program focused on capacity building.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div>
+            <h3>Public Speaking Training</h3>
+            <div class="org">GenBI Empowerment Program · October 2024</div>
+            <p>Developed public speaking and communication skills through structured training.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div>
+            <h3>Digital Marketing Bootcamp / Independent Study</h3>
+            <div class="org">Five-month learning program</div>
+            <p>Completed structured learning in digital marketing and related practical skills.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-head">
+    <div>
+      <div class="kicker">04 / Projects</div>
+      <h2 class="section-title">Selected projects</h2>
+    </div>
+    <p class="section-note">
+      Academic and competition projects that demonstrate analytical thinking,
+      user-centered design, and problem solving.
+    </p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="work-visual">
+        <div>
+          <strong>Research Result Visual</strong>
+          <span>Replace with an original chart or research screenshot.</span>
+        </div>
+      </div>
+      <div class="card-top">
+        <div>
+          <div class="meta">DATA ANALYSIS · FINAL PROJECT</div>
+          <h3>MBG Program Sentiment Analysis</h3>
+        </div>
+      </div>
+      <p>
+        Analyzed 1,390 TikTok comments about Indonesia’s Free Nutritious Meals
+        (MBG) program to identify sentiment patterns and evaluate
+        classification results. The model achieved 86.1% accuracy while
+        addressing class imbalance.
+      </p>
+      <div class="pills">
+        <span class="pill">Python</span>
+        <span class="pill">TF-IDF</span>
+        <span class="pill">Logistic Regression</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="work-visual">
+        <div>
+          <strong>UI/UX Prototype or Award</strong>
+          <span>Replace with the original Go Wisata project screen.</span>
+        </div>
+      </div>
+      <div class="card-top">
+        <div>
+          <div class="meta">UI/UX · NATIONAL COMPETITION · 2024</div>
+          <h3>Go Wisata Travel Planning Concept</h3>
+        </div>
+      </div>
+      <p>
+        Developed a travel-planning application concept focused on user needs
+        and travel-planning challenges. The project received second place
+        in a national competition.
+      </p>
+      <div class="pills">
+        <span class="pill">UI/UX</span>
+        <span class="pill">User-Centered Thinking</span>
+        <span class="pill">Problem Solving</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <div class="meta">ACADEMIC PROJECT · 2024</div>
+          <h3>University Admissions Decision Support Website</h3>
+        </div>
+      </div>
+      <p>
+        An academic project exploring a decision-support application for
+        university admissions selection, with a focus on structured selection
+        criteria and presenting recommendations. Detailed project visuals
+        were not available.
+      </p>
+      <div class="pills">
+        <span class="pill">Information Systems</span>
+        <span class="pill">Decision Support</span>
+        <span class="pill">Requirements Thinking</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-head">
+    <div>
+      <div class="kicker">05 / Education & Achievements</div>
+      <h2 class="section-title">Education & achievements</h2>
+    </div>
+    <p class="section-note">
+      Academic foundation, scholarship, and selected competition achievements.
+    </p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="meta">2022—2026</div>
+      <h3>Bachelor's Degree in Information Systems</h3>
+      <p>Universitas Trunojoyo Madura · GPA 3.72/4.00</p>
+    </article>
+
+    <article class="card">
+      <div class="meta">SCHOLARSHIP · 2024—2025</div>
+      <h3>Bank Indonesia Scholarship</h3>
+      <p>Recipient for two periods.</p>
+    </article>
+
+    <article class="card">
+      <div class="meta">NATIONAL COMPETITIONS</div>
+      <h3>UI/UX, English Speech & Essay</h3>
+      <p>
+        Second place nationally for the Go Wisata UI/UX project (2024);
+        national English Speech grand finalist (2024); national essay
+        grand finalist (2025).
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
 <section id="certifications">
-  <div class="section-head"><div><div class="kicker">06 / Certifications & Training</div><h2 class="section-title">Certifications & training</h2></div><p class="section-note">Professional credentials and learning experiences supporting business, customer, and digital skills.</p></div>
-  <div class="cards"><article class="card"><div class="meta">2025</div><h3>BNSP Digital Marketing Certification</h3><p>Professional certification in digital marketing.</p></article><article class="card"><div class="meta">2024</div><h3>BNSP Customer Relationship Management (CRM)</h3><p>Certification focused on customer relationship management.</p></article><article class="card"><div class="meta">2026</div><h3>TEAP — English Proficiency</h3><p>Test score: 450.</p></article><article class="card"><div class="meta">2025</div><h3>Digital Marketing Bootcamp / Studi Independen</h3><p>Structured learning experience in digital marketing.</p></article><article class="card"><div class="meta">2024</div><h3>GenBI Leadership & Public Speaking</h3><p>Training in leadership and public speaking.</p></article></div>
+  <div class="section-head">
+    <div>
+      <div class="kicker">06 / Certifications & Training</div>
+      <h2 class="section-title">Certifications & training</h2>
+    </div>
+    <p class="section-note">
+      Professional credentials and learning experiences supporting business,
+      customer, and digital skills.
+    </p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="meta">2025</div>
+      <h3>BNSP Digital Marketing Certification</h3>
+      <p>Professional certification in digital marketing.</p>
+    </article>
+
+    <article class="card">
+      <div class="meta">2024</div>
+      <h3>BNSP Customer Relationship Management (CRM)</h3>
+      <p>Certification focused on customer relationship management.</p>
+    </article>
+
+    <article class="card">
+      <div class="meta">2026</div>
+      <h3>TEAP — English Proficiency</h3>
+      <p>Test score: 450.</p>
+    </article>
+
+    <article class="card">
+      <div class="meta">2025</div>
+      <h3>Digital Marketing Bootcamp / Studi Independen</h3>
+      <p>Structured learning experience in digital marketing.</p>
+    </article>
+
+    <article class="card">
+      <div class="meta">2024</div>
+      <h3>GenBI Leadership & Public Speaking</h3>
+      <p>Training in leadership and public speaking.</p>
+    </article>
+  </div>
 </section>
+
+<!-- SKILLS -->
 <section id="skills">
-  <div class="section-head"><div><div class="kicker">07 / Skills & Tools</div><h2 class="section-title">Skills & tools</h2></div><p class="section-note">Capabilities relevant to Management Trainee, Business/System Analyst, and Project Management/PMO roles.</p></div>
-  <div class="skill-grid"><div class="skill-box"><h3>Business & Analysis</h3><p>Business Operations · Requirements Understanding · Problem Solving · Process Improvement · Customer Experience · Data Analysis</p></div><div class="skill-box"><h3>Project & People</h3><p>Project Coordination · Timeline & Task Management · Stakeholder Communication · Team Leadership · Meeting & Progress Follow-up</p></div><div class="skill-box"><h3>Digital & Tools</h3><p>Microsoft Excel, Word, PowerPoint · Python · SQL · Power BI · Digital Marketing · CRM</p></div></div>
+  <div class="section-head">
+    <div>
+      <div class="kicker">07 / Skills & Tools</div>
+      <h2 class="section-title">Skills & tools</h2>
+    </div>
+    <p class="section-note">
+      Capabilities relevant to Management Trainee, Business/System Analyst,
+      and Project Management/PMO roles.
+    </p>
+  </div>
+
+  <div class="skill-grid">
+    <div class="skill-box">
+      <h3>Business & Analysis</h3>
+      <p>
+        Business Operations · Requirements Understanding · Problem Solving ·
+        Process Improvement · Customer Experience · Data Analysis
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Project & People</h3>
+      <p>
+        Project Coordination · Timeline & Task Management · Stakeholder
+        Communication · Team Leadership · Meeting & Progress Follow-up
+      </p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Digital & Tools</h3>
+      <p>
+        Microsoft Excel, Word, PowerPoint · Python · SQL · Power BI ·
+        Digital Marketing · CRM
+      </p>
+    </div>
+  </div>
 </section>
+
+<!-- CONTACT -->
 <section id="contact">
-  <div class="contact"><div><div class="kicker">08 / Contact</div><h2>Let's connect.</h2><p>Open to opportunities in Management Trainee, Business Analyst/System Analyst, and Project Management/PMO.</p><div class="contact-links"><a class="btn primary" href="https://www.linkedin.com/in/tesaputrihutagaol/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="btn" href="mailto:tesahutagaolwork@gmail.com">Email ↗</a><a class="btn" href="https://wa.me/6282278837123" target="_blank" rel="noreferrer">WhatsApp ↗</a><span class="link-pending" title="Instagram profile link will be added later">Instagram · coming soon</span><span class="link-pending" title="GitHub profile link will be added later">GitHub · coming soon</span></div></div></div>
+  <div class="contact">
+    <div>
+      <div class="kicker">08 / Contact</div>
+      <h2>Let's connect.</h2>
+      <p>
+        Open to opportunities in Management Trainee, Business Analyst/System
+        Analyst, and Project Management/PMO.
+      </p>
+
+      <div class="contact-links">
+        <a class="btn primary"
+           href="https://www.linkedin.com/in/tesaputrihutagaol/"
+           target="_blank"
+           rel="noopener noreferrer">
+          LinkedIn ↗
+        </a>
+
+        <a class="btn" href="mailto:tesahutagaolwork@gmail.com">
+          Email ↗
+        </a>
+
+        <a class="btn"
+           href="https://wa.me/6282278837123"
+           target="_blank"
+           rel="noopener noreferrer">
+          WhatsApp ↗
+        </a>
+
+        <span class="link-pending"
+              title="Add your Instagram profile link when ready">
+          Instagram · coming soon
+        </span>
+
+        <span class="link-pending"
+              title="Add your GitHub profile link when ready">
+          GitHub · coming soon
+        </span>
+      </div>
+    </div>
+  </div>
 </section>
+
 </main>
-<footer><span>© 2026 Tesa Putri Hutagaol</span><span>Portfolio · Continuously evolving</span></footer>
+
+<footer>
+  <span>© 2026 Tesa Putri Hutagaol</span>
+  <span>Portfolio · Continuously evolving</span>
+</footer>
+
 </div>
+
 <script>
-document.querySelectorAll('.more-activities-toggle').forEach((button) => {
-  button.addEventListener('click', () => {
-    const panel = document.getElementById(button.getAttribute('aria-controls'));
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', String(!expanded));
+/* AUTOMATIC PROFILE PHOTO SLIDESHOW */
+(() => {
+  const photos = Array.from(document.querySelectorAll(".portrait-photo"));
+  const dots = Array.from(document.querySelectorAll(".photo-dot"));
+
+  if (photos.length < 2) return;
+
+  let current = 0;
+  let slideshowTimer;
+
+  function showPhoto(index) {
+    photos[current].classList.remove("active");
+    dots[current]?.classList.remove("active");
+
+    current = index;
+
+    photos[current].classList.add("active");
+    dots[current]?.classList.add("active");
+  }
+
+  function startSlideshow() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    slideshowTimer = window.setInterval(() => {
+      showPhoto((current + 1) % photos.length);
+    }, 3500);
+  }
+
+  const portrait = document.getElementById("portrait-wrap");
+
+  // Pause rotation while the visitor hovers over the photo.
+  portrait?.addEventListener("mouseenter", () => {
+    window.clearInterval(slideshowTimer);
+  });
+
+  portrait?.addEventListener("mouseleave", () => {
+    window.clearInterval(slideshowTimer);
+    startSlideshow();
+  });
+
+  startSlideshow();
+})();
+
+/* EXPAND AND COLLAPSE ACTIVITIES */
+document.querySelectorAll(".more-activities-toggle").forEach((button) => {
+  button.addEventListener("click", () => {
+    const panel = document.getElementById(
+      button.getAttribute("aria-controls")
+    );
+
+    const expanded = button.getAttribute("aria-expanded") === "true";
+
+    button.setAttribute("aria-expanded", String(!expanded));
     panel.hidden = expanded;
-    button.innerHTML = expanded ? 'See All Experiences <span aria-hidden="true">＋</span>' : 'Show Less <span aria-hidden="true">−</span>';
+
+    button.innerHTML = expanded
+      ? 'See All Experiences <span aria-hidden="true">＋</span>'
+      : 'Show Less <span aria-hidden="true">−</span>';
   });
 });
 </script>
+
 </body>
 </html>
