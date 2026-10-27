@@ -210,8 +210,12 @@
   .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; transition: 0.3s; overflow: hidden; }
   .project-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(255, 87, 34, 0.1); }
 
-  .project-card-header { padding: 60px 24px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); background: radial-gradient(circle at center, rgba(255,87,34,0.15) 0%, transparent 60%); }
-  .project-card-title { font-size: 28px; font-weight: 800; color: var(--accent); text-transform: uppercase; text-align: center; line-height: 1.2; }
+  /* Area Gambar Project */
+  .project-card-header { padding: 0; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); background: radial-gradient(circle at center, rgba(255,87,34,0.15) 0%, transparent 60%); overflow: hidden; }
+  .project-card-title { font-size: 28px; font-weight: 800; color: var(--accent); text-transform: uppercase; text-align: center; line-height: 1.2; padding: 60px 24px; }
+  
+  /* Gambar di dalam project */
+  .project-img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9; display: block; }
 
   .project-card-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
   .project-meta { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
@@ -352,11 +356,7 @@
       </div>
 
       <div class="hero-cta">
-        <!-- =====================================================================
-             ⚠️ [PENANDA FILE CV 1 - HERO] ⚠️
-             Ganti tulisan 'LINK_CV_KAMU_DISINI' di bawah ini dengan link Google Drive CV kamu.
-             Contoh: href="https://drive.google.com/file/d/xxxxxx/view?usp=sharing"
-             ===================================================================== -->
+        <!-- ⚠️ GANTI LINK_CV_KAMU_DISINI DENGAN LINK CV KAMU -->
         <a href="LINK_CV_KAMU_DISINI" class="btn btn-primary">Download CV</a>
         <a href="#projects" class="link-underline">How I work</a>
       </div>
@@ -372,6 +372,7 @@
       <span class="sparkle s2">✦</span>
 
       <div class="arch-container">
+        <!-- ⚠️ GANTI ppp.png DENGAN NAMA FILE FOTO KAMU -->
         <img src="ppp.png" alt="Tesa Putri Hutagaol" />
       </div>
 
@@ -524,8 +525,9 @@
     
     <div class="projects-grid fade-up">
       <div class="project-card">
-        <div class="project-card-header" style="padding: 0;">
-          <img src="Picture1.jpg" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9;">
+        <div class="project-card-header">
+          <!-- ⚠️ GANTI Picture1.jpg DENGAN NAMA FILE GAMBAR MBG KAMU -->
+          <img src="Picture1.jpg" class="project-img" alt="MBG Project">
         </div>
         <div class="project-card-body">
           <div class="project-meta">Final-Year Project · 2026</div>
@@ -540,7 +542,8 @@
 
       <div class="project-card">
         <div class="project-card-header">
-          <h3 class="project-card-title">GO WISATA</h3>
+          <!-- ⚠️ GANTI NAMA FILE GAMBAR GO WISATA KAMU -->
+          <img src="NAMA_FILE_GO_WISATA.jpg" class="project-img" alt="Go Wisata Project">
         </div>
         <div class="project-card-body">
           <div class="project-meta">UI/UX Design · 2025</div>
@@ -555,7 +558,8 @@
 
       <div class="project-card">
         <div class="project-card-header">
-          <h3 class="project-card-title">SPK / PMB</h3>
+          <!-- ⚠️ GANTI NAMA FILE GAMBAR SPK KAMU -->
+          <img src="NAMA_FILE_SPK.jpg" class="project-img" alt="SPK Project">
         </div>
         <div class="project-card-body">
           <div class="project-meta">Academic Project · 2024</div>
@@ -569,7 +573,8 @@
 
       <div class="project-card">
         <div class="project-card-header">
-          <h3 class="project-card-title">WEB SYS</h3>
+          <!-- ⚠️ GANTI NAMA FILE GAMBAR WEB SYS KAMU -->
+          <img src="NAMA_FILE_WEB_SYS.jpg" class="project-img" alt="Web System Project">
         </div>
         <div class="project-card-body">
           <div class="project-meta">Academic Project · 2023</div>
@@ -966,7 +971,7 @@
     <div class="contact-links">
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tesahutagaolwork@gmail.com" target="_blank" class="contact-link">📧 tesahutagaolwork@gmail.com</a>
       <a href="https://wa.me/6282278837123" target="_blank" class="contact-link">💬 WhatsApp</a>
-      <a href="https://linkedin.com/in/tesaputrihutagaol" target="_blank" class="contact-link">💼 LinkedIn</a>
+      <a href="https://linkedin.com/in/tesaputrihutagaol" target="_blank" class="contact-link">🔗 LinkedIn</a>
       <a href="https://github.com/Tesahutagaol" target="_blank" class="contact-link">🐙 GitHub</a>
       <a href="https://instagram.com/tesahll?rpxt=MWpwc3YzMTdrMDFrYg%3D%3D" target="_blank" class="contact-link">📸 Instagram</a>
     </div>
@@ -974,12 +979,8 @@
     <div style="display: flex; justify-content: center; gap: 16px;">
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tesahutagaolwork@gmail.com" target="_blank" class="btn btn-primary">Send Email</a>
       
-      <!-- =====================================================================
-           ⚠️ [PENANDA FILE CV 2 - BAGIAN BAWAH] ⚠️
-           Ganti tulisan 'LINK_CV_KAMU_DISINI' di bawah ini dengan link Google Drive CV kamu.
-           ===================================================================== -->
+      <!-- ⚠️ GANTI LINK_CV_KAMU_DISINI DENGAN LINK CV KAMU -->
       <a href="LINK_CV_KAMU_DISINI" class="btn btn-outline">Download CV</a>
-      
     </div>
 
     <div class="footer">
