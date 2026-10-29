@@ -258,7 +258,7 @@
   .edu-info-grid { display: flex; gap: 16px; margin-bottom: 0; align-items: center; flex-wrap: wrap; }
   .edu-info-item { background: rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; color: #fff; border: 1px solid #333; }
 
-  /* ---------- Organisasi & Kepemimpinan ---------- */
+  /* ---------- Organisasi & Kepemimpinan (Slideshow 2 Foto) ---------- */
   .leadership-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; }
 
   .lead-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; overflow: hidden; transition: 0.3s; }
@@ -267,7 +267,11 @@
 
   .lead-card-img { width: 100%; height: 240px; flex-shrink: 0; position: relative; }
   @media (min-width: 768px) { .lead-card-img { width: 280px; height: auto; } }
-  .lead-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  
+  /* Slideshow Container di dalam Lead Card */
+  .lead-card-img .slideshow-container { position: relative; width: 100%; height: 100%; overflow: hidden; }
+  .lead-card-img .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease-in-out; }
+  .lead-card-img .slide.active { opacity: 1; }
 
   .lead-card-body { padding: 24px; display: flex; flex-direction: column; justify-content: center; }
   .lead-card-body .tl-role { font-size: 20px; margin-bottom: 4px; }
@@ -275,7 +279,7 @@
   .lead-card-body .tl-period { font-size: 13px; margin-bottom: 12px; }
   .lead-card-body .tl-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
 
-  /* ---------- Activities (Slider 7 Kotak) ---------- */
+  /* ---------- Activities (Slider 7 Kotak & Dots) ---------- */
   .activities-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
   
   .act-slider-container { position: relative; margin: 0 -12px; }
@@ -778,7 +782,7 @@
   </div>
 </section>
 
-<!-- ORGANISASI & KEPEMIMPINAN -->
+<!-- ORGANISASI & KEPEMIMPINAN (Slideshow 2 Foto) -->
 <section id="leadership">
   <div class="container">
     <div class="section-header fade-up">
@@ -788,10 +792,14 @@
     </div>
 
     <div class="leadership-grid fade-up">
-      <!-- Kotak 1 -->
+      <!-- Kotak 1: GenBI -->
       <div class="lead-card">
         <div class="lead-card-img">
-          <img src="foto-genbi.jpg" alt="GenBI">
+          <div class="slideshow-container" id="lead-slides-genbi">
+            <!-- ⚠️ GANTI NAMA FILE GAMBAR DI BAWAH INI -->
+            <img src="foto-genbi-1.jpg" class="slide active" alt="GenBI 1">
+            <img src="foto-genbi-2.jpg" class="slide" alt="GenBI 2">
+          </div>
         </div>
         <div class="lead-card-body">
           <div class="tl-role">Secretary General</div>
@@ -801,10 +809,13 @@
         </div>
       </div>
 
-      <!-- Kotak 2 -->
+      <!-- Kotak 2: SAKERA -->
       <div class="lead-card">
         <div class="lead-card-img">
-          <img src="foto-pkkmm.jpg" alt="SAKERA">
+          <div class="slideshow-container" id="lead-slides-sakera">
+            <img src="foto-pkkmm-1.jpg" class="slide active" alt="SAKERA 1">
+            <img src="foto-pkkmm-2.jpg" class="slide" alt="SAKERA 2">
+          </div>
         </div>
         <div class="lead-card-body">
           <div class="tl-role">Person in Charge, Opening & Closing</div>
@@ -814,10 +825,13 @@
         </div>
       </div>
 
-      <!-- Kotak 3 -->
+      <!-- Kotak 3: Aksara -->
       <div class="lead-card">
         <div class="lead-card-img">
-          <img src="foto-aksara.jpg" alt="Aksara">
+          <div class="slideshow-container" id="lead-slides-aksara">
+            <img src="foto-aksara-1.jpg" class="slide active" alt="Aksara 1">
+            <img src="foto-aksara-2.jpg" class="slide" alt="Aksara 2">
+          </div>
         </div>
         <div class="lead-card-body">
           <div class="tl-role">Event Coordinator</div>
@@ -827,10 +841,13 @@
         </div>
       </div>
 
-      <!-- Kotak 4 -->
+      <!-- Kotak 4: EFIS -->
       <div class="lead-card">
         <div class="lead-card-img">
-          <img src="foto-efis.jpg" alt="EFIS">
+          <div class="slideshow-container" id="lead-slides-efis">
+            <img src="foto-efis-1.jpg" class="slide active" alt="EFIS 1">
+            <img src="foto-efis-2.jpg" class="slide" alt="EFIS 2">
+          </div>
         </div>
         <div class="lead-card-body">
           <div class="tl-role">Chairperson</div>
@@ -840,10 +857,13 @@
         </div>
       </div>
 
-      <!-- Kotak 5 -->
+      <!-- Kotak 5: WDC -->
       <div class="lead-card">
         <div class="lead-card-img">
-          <img src="foto-wdc.jpg" alt="WDC">
+          <div class="slideshow-container" id="lead-slides-wdc">
+            <img src="foto-wdc-1.jpg" class="slide active" alt="WDC 1">
+            <img src="foto-wdc-2.jpg" class="slide" alt="WDC 2">
+          </div>
         </div>
         <div class="lead-card-body">
           <div class="tl-role">Treasurer</div>
@@ -1271,24 +1291,26 @@
   generateDots();
 
   // ==========================================
-  // SLIDESHOW OTOMATIS (Foto berganti sendiri)
+  // SLIDESHOW OTOMATIS (Berlaku untuk Leadership & Activities)
   // ==========================================
   const slideshows = document.querySelectorAll('.slideshow-container');
   
   slideshows.forEach(container => {
     const slides = container.querySelectorAll('.slide');
-    const dots = document.querySelector(`.slide-dots[data-target="${container.id}"]`).querySelectorAll('.dot');
+    // Cek apakah ada dots (untuk Activities), kalau tidak ada (Leadership) biarkan kosong
+    const dotsWrapper = document.querySelector(`.slide-dots[data-target="${container.id}"]`);
+    const dots = dotsWrapper ? dotsWrapper.querySelectorAll('.dot') : [];
     let currentIndex = 0;
 
     if (slides.length > 1) {
       setInterval(() => {
         slides[currentIndex].classList.remove('active');
-        dots[currentIndex].classList.remove('active');
+        if (dots.length > 0) dots[currentIndex].classList.remove('active');
         
         currentIndex = (currentIndex + 1) % slides.length;
         
         slides[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
+        if (dots.length > 0) dots[currentIndex].classList.add('active');
       }, 3000);
     }
   });
